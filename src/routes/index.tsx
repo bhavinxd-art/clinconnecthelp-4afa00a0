@@ -37,10 +37,10 @@ function Home() {
           Curated for healthcare students & professionals
         </div>
         <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-          Find your next role in <span className="text-primary">healthcare</span>.
+          Your Gateway to <span className="text-primary">Clinical Research</span> Careers
         </h1>
         <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-          ClinConnect brings together verified internships, residencies and clinical jobs so you can focus on what matters — caring for patients.
+          Explore jobs, internships, and opportunities from hospitals, CROs, SMOs, and research organizations across India.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
