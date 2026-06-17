@@ -83,3 +83,46 @@ export const getJob = createServerFn({ method: "GET" })
     )) as AirtableRecord;
     return mapRecord(r);
   });
+
+import { z } from "zod";
+
+const submissionSchema = z.object({
+  title: z.string().trim().min(2).max(120),
+  company: z.string().trim().min(1).max(120),
+  location: z.string().trim().min(1).max(120),
+  category: z.string().trim().min(1).max(60),
+  eligibility: z.string().trim().max(500).optional().default(""),
+  stipend: z.string().trim().max(120).optional().default(""),
+  applyUrl: z.string().trim().url().max(500),
+  contactEmail: z.string().trim().email().max(200),
+  contactName: z.string().trim().min(1).max(120),
+});
+
+export const submitJob = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => submissionSchema.parse(d))
+  .handler(async ({ data }) => {
+    const today = new Date().toISOString().slice(0, 10);
+    await airtableFetch(`/v0/${BASE_ID}/${TABLE_ID}`, {
+      method: "POST",
+      body: {
+        records: [
+          {
+            fields: {
+              "Role": data.title,
+              "Organization": data.company,
+              "Location": data.location,
+              "Job type": data.category,
+              "Stipend": data.stipend,
+              "Eligibility": data.eligibility,
+              "Contact / Link": data.applyUrl,
+              "Date posted": today,
+              "Source": `Submitted by ${data.contactName} <${data.contactEmail}>`,
+              "Verified": false,
+              "Active": false,
+            },
+          },
+        ],
+      },
+    });
+    return { ok: true as const };
+  });
