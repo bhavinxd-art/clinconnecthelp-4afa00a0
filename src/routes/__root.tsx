@@ -72,9 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ClinConnect — Healthcare jobs & internships" },
       { name: "description", content: "Find verified healthcare roles, internships and clinical opportunities on ClinConnect." },
-      { property: "og:title", content: "ClinConnect" },
-      { property: "og:description", content: "Verified healthcare jobs and internships." },
+      { property: "og:title", content: "ClinConnect — Healthcare jobs & internships" },
+      { property: "og:description", content: "Find verified healthcare roles, internships and clinical opportunities on ClinConnect." },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "ClinConnect — Healthcare jobs & internships" },
+      { name: "twitter:description", content: "Find verified healthcare roles, internships and clinical opportunities on ClinConnect." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/96fc3423-f092-41cf-9574-0b40f567474c" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/96fc3423-f092-41cf-9574-0b40f567474c" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -108,9 +113,7 @@ function Header() {
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <Link to="/" className="rounded-md px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground" activeOptions={{ exact: true }} activeProps={{ className: "rounded-md px-3 py-2 text-foreground bg-secondary" }}>Home</Link>
-          <Link to="/jobs" className="rounded-md px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground" activeProps={{ className: "rounded-md px-3 py-2 text-foreground bg-secondary" }}>Jobs</Link>
-          <Link to="/about" className="rounded-md px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground" activeProps={{ className: "rounded-md px-3 py-2 text-foreground bg-secondary" }}>About</Link>
-          <Link to="/post-job" className="ml-1 rounded-md bg-primary px-3 py-2 text-primary-foreground hover:opacity-90">Post a job</Link>
+          <Link to="/jobs" className="rounded-md px-3 py-2 text-muted-foreground hover:bg-secondary hover:text-foreground" activeProps={{ className: "rounded-md px-3 py-2 text-foreground bg-secondary" }}>Browse jobs</Link>
         </nav>
       </div>
     </header>
@@ -120,14 +123,8 @@ function Header() {
 function Footer() {
   return (
     <footer className="mt-20 border-t border-border/60">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <span>© {new Date().getFullYear()} ClinConnect. Verified healthcare opportunities.</span>
-        <nav className="flex flex-wrap gap-4">
-          <Link to="/about" className="hover:text-foreground">About</Link>
-          <Link to="/post-job" className="hover:text-foreground">Post a job</Link>
-          <Link to="/disclaimer" className="hover:text-foreground">Disclaimer</Link>
-          <a href="mailto:clinconnecthelp@gmail.com" className="hover:text-foreground">Contact</a>
-        </nav>
+      <div className="mx-auto max-w-6xl px-5 py-8 text-sm text-muted-foreground">
+        © {new Date().getFullYear()} ClinConnect. Verified healthcare opportunities.
       </div>
     </footer>
   );
