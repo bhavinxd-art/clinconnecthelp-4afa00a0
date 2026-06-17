@@ -44,17 +44,23 @@ function mapRecord(r: AirtableRecord): Job {
   };
 }
 
-async function airtableFetch(path: string): Promise<unknown> {
+async function airtableFetch(
+  path: string,
+  init?: { method?: string; body?: unknown },
+): Promise<unknown> {
   const lovableKey = process.env.LOVABLE_API_KEY;
   const airtableKey = process.env.AIRTABLE_API_KEY;
   if (!lovableKey || !airtableKey) {
     throw new Error("Airtable connection is not configured");
   }
   const res = await fetch(`${GATEWAY_URL}${path}`, {
+    method: init?.method ?? "GET",
     headers: {
       Authorization: `Bearer ${lovableKey}`,
       "X-Connection-Api-Key": airtableKey,
+      ...(init?.body ? { "Content-Type": "application/json" } : {}),
     },
+    body: init?.body ? JSON.stringify(init.body) : undefined,
   });
   if (!res.ok) {
     throw new Error(`Airtable request failed (${res.status}): ${await res.text()}`);
