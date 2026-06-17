@@ -58,7 +58,7 @@ function JobsList() {
   }, [jobs, q, location, category]);
 
   const update = (patch: Partial<{ q: string; location: string; category: string }>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }) });
+    navigate({ search: (prev: { q: string; location: string; category: string }) => ({ ...prev, ...patch }) });
 
   const hasFilters = Boolean(q || location || category);
 
