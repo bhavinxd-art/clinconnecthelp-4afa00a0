@@ -14,7 +14,7 @@ import { z } from "zod";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { fetchJobs, fetchJobById, type Job } from "./lib/jobs";
 import { JobCard } from "./components/JobCard";
-import { Search, ShieldCheck, Stethoscope, Sparkles, ArrowLeft, MapPin, Building2, CalendarDays, BadgeCheck, ExternalLink, Banknote, GraduationCap, Loader as Loader2, X } from "lucide-react";
+import { Search, ShieldCheck, Stethoscope, Sparkles, ArrowLeft, MapPin, Building2, CalendarDays, BadgeCheck, ExternalLink, Banknote, GraduationCap, Loader as Loader2, X, Target } from "lucide-react";
 
 // Root layout route
 const rootRoute = createRootRoute({
