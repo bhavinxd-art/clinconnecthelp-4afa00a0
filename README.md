@@ -23,4 +23,5 @@ If you prefer Airtable's API instead of a public CSV view, add these GitHub Acti
 
 Use a read-only Airtable token scoped only to this base.
 
+
 [![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/github-sbuyidjj)
