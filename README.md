@@ -1,4 +1,4 @@
-# ClinConnect
+# ClinConnect-
 
 ClinConnect is a static job board that can be hosted on GitHub Pages while still loading live job data from Airtable whenever someone opens the site.
 
