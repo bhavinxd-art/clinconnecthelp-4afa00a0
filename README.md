@@ -3,7 +3,7 @@
 ClinConnect is a static job board that can be hosted on GitHub Pages while still loading live job data from Airtable whenever someone opens the site.
 
 ## Easiest GitHub Pages setup
-
+ 
 1. In Airtable, create a public/shared view for the Jobs table.
 2. Copy the public CSV download URL for that view.
 3. In GitHub, go to **Settings → Secrets and variables → Actions → New repository secret**.
