@@ -22,7 +22,9 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const { data: jobs } = useSuspenseQuery(jobsQuery);
-  const featured = jobs.filter((j) => j.active !== false).slice(0, 6);
+  const featured = [...jobs]
+    .sort((a, b) => (b.postedDate || "").localeCompare(a.postedDate || ""))
+    .slice(0, 3);
   const stats = {
     total: jobs.length,
     verified: jobs.filter((j) => j.verified).length,
