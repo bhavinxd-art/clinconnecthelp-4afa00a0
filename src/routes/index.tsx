@@ -100,6 +100,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <NewsletterSection />
     </div>
   );
 }
