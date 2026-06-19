@@ -70,7 +70,5 @@
       radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent),
       radial-gradient(900px 500px at -10% 10%, color-mix(in oklab, var(--color-accent) 8%, transparent), transparent);
     
-  }#lovable-badge {
-  display: none !important;
   }
 }
